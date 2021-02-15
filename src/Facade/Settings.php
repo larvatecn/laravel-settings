@@ -6,7 +6,7 @@
  * @license http://www.larva.com.cn/license/
  */
 
-namespace Larva\Settings;
+namespace Larva\Settings\Facade;
 
 use Illuminate\Support\Facades\Facade;
 use Larva\Settings\Contracts\SettingsRepository;

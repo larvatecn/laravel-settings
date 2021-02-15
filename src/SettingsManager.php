@@ -22,7 +22,7 @@ class SettingsManager implements SettingsRepository
     /**
      * The container instance.
      *
-     * @var \Illuminate\Contracts\Container\Container
+     * @var Container
      */
     protected $container;
 
@@ -34,7 +34,7 @@ class SettingsManager implements SettingsRepository
     /**
      * Create a new instance.
      *
-     * @param \Illuminate\Contracts\Container\Container $container
+     * @param Container $container
      * @return void
      */
     public function __construct(Container $container)
