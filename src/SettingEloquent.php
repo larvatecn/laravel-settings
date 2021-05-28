@@ -30,7 +30,7 @@ class SettingEloquent extends Model
      * @var array
      */
     public $fillable = [
-        'key', 'value'
+        'key', 'value', 'cast_type'
     ];
 
     /**
