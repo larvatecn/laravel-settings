@@ -1,5 +1,5 @@
 {
-  "name": "larva/settings",
+  "name": "larva/laravel-settings",
   "description": "This is laravel settings module.",
   "keywords": [ "laravel", "settings", "larva" ],
   "type": "library",
