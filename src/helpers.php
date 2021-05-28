@@ -13,10 +13,10 @@ if (!function_exists('settings')) {
      * Get setting value or object.
      *
      * @param string $key
-     * @param string $default
+     * @param string|null $default
      * @return SettingsRepository|mixed
      */
-    function settings($key = '', $default = null)
+    function settings(string $key = '', string $default = null)
     {
         if (empty($key)) {
             return app()->make(SettingsRepository::class);

@@ -19,6 +19,8 @@ use Larva\Settings\Contracts\SettingsRepository;
  */
 class SettingsManager implements SettingsRepository
 {
+    const CACHE_TAG = "settings";
+
     /**
      * The container instance.
      *
