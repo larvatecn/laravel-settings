@@ -51,7 +51,7 @@ class SettingsManager implements SettingsRepository
      */
     public function all(bool $reload = false)
     {
-        if ($settings = Cache::get(static::CACHE_TAG) == null || $reload) {
+        if (($settings = Cache::get(static::CACHE_TAG)) == null || $reload) {
             $settings = [];
             SettingEloquent::all()->each(function ($setting) use (&$settings) {
                 Arr::set($settings, $setting['key'], $setting['value']);
