@@ -9,9 +9,15 @@
 namespace Larva\Settings;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 /**
- * Class SettingEloquent
+ * 数据模型
+ * @property int $id
+ * @property string $key
+ * @property string $value
+ * @property Carbon $updated_at 更新时间
+ *
  * @author Tongle Xu <xutongle@gmail.com>
  */
 class SettingEloquent extends Model
@@ -30,7 +36,7 @@ class SettingEloquent extends Model
      * @var array
      */
     public $fillable = [
-        'key', 'value', 'cast_type'
+        'key', 'value'
     ];
 
     /**

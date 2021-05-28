@@ -8,6 +8,8 @@
 
 namespace Larva\Settings\Contracts;
 
+use Illuminate\Support\Collection;
+
 /**
  * 设置接口
  * @author Tongle Xu <xutongle@gmail.com>
@@ -16,9 +18,10 @@ interface SettingsRepository
 {
     /**
      * 获取所有的设置
-     * @return \Illuminate\Support\Collection
+     * @param boolean $reload 是否重载
+     * @return Collection
      */
-    public function all();
+    public function all(bool $reload = false);
 
     /**
      * 指定的设置是否存在
@@ -26,22 +29,22 @@ interface SettingsRepository
      * @param string $key
      * @return bool
      */
-    public function has($key);
+    public function has(string $key);
 
     /**
      * 获取设置
      * @param string $key
-     * @param string $default
+     * @param string|null $default
      * @return string
      */
-    public function get($key, $default = null);
+    public function get(string $key, string $default = null);
 
     /**
      * 获取设置组
      * @param string $section
      * @return array
      */
-    public function section($section);
+    public function section(string $section);
 
     /**
      * 保存设置
@@ -49,12 +52,12 @@ interface SettingsRepository
      * @param string $value
      * @return bool
      */
-    public function set($key, $value);
+    public function set(string $key, string $value);
 
     /**
      * 删除设置
      * @param string $key
      * @return mixed
      */
-    public function forge($key);
+    public function forge(string $key);
 }
