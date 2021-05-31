@@ -44,15 +44,15 @@ interface SettingsRepository
      * @param string $section
      * @return array
      */
-    public function section(string $section);
+    public function section(string $section): array;
 
     /**
      * 保存设置
      * @param string $key
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function set(string $key, string $value);
+    public function set(string $key, string $value = null): bool;
 
     /**
      * 删除设置

@@ -89,7 +89,7 @@ class SettingsManager implements SettingsRepository
      * @param string $section
      * @return array
      */
-    public function section(string $section)
+    public function section(string $section): array
     {
         return Arr::get($this->all(), $section);
     }
@@ -97,10 +97,10 @@ class SettingsManager implements SettingsRepository
     /**
      * 保存设置
      * @param string $key
-     * @param string $value
+     * @param string|null $value
      * @return bool
      */
-    public function set(string $key, string $value)
+    public function set(string $key, string $value = null): bool
     {
         if (is_array($value)) {
             return false;
