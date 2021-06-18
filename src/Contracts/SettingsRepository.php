@@ -34,10 +34,10 @@ interface SettingsRepository
     /**
      * 获取设置
      * @param string $key
-     * @param string|null $default
+     * @param mixed|null $default
      * @return string
      */
-    public function get(string $key, string $default = null);
+    public function get(string $key, $default = null);
 
     /**
      * 获取设置组

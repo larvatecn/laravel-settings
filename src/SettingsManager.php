@@ -68,7 +68,7 @@ class SettingsManager implements SettingsRepository
      * @param string $key
      * @return bool
      */
-    public function has(string $key)
+    public function has(string $key): bool
     {
         return Arr::has($this->all(), $key);
     }
@@ -76,10 +76,10 @@ class SettingsManager implements SettingsRepository
     /**
      * 获取设置
      * @param string $key
-     * @param string|null $default
+     * @param mixed|null $default
      * @return string
      */
-    public function get(string $key, string $default = null)
+    public function get(string $key, $default = null)
     {
         return Arr::get($this->all(), $key, $default);
     }
