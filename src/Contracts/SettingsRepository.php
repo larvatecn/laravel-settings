@@ -35,7 +35,7 @@ interface SettingsRepository
      * 获取设置
      * @param string $key
      * @param mixed|null $default
-     * @return string
+     * @return mixed
      */
     public function get(string $key, $default = null);
 
@@ -49,10 +49,11 @@ interface SettingsRepository
     /**
      * 保存设置
      * @param string $key
-     * @param string|null $value
+     * @param mixed|null $value
+     * @param string $cast_type
      * @return bool
      */
-    public function set(string $key, string $value = null): bool;
+    public function set(string $key, $value = null, string $cast_type = 'string'): bool;
 
     /**
      * 删除设置

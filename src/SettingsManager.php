@@ -54,7 +54,25 @@ class SettingsManager implements SettingsRepository
         if (($settings = Cache::get(static::CACHE_TAG)) == null || $reload) {
             $settings = [];
             SettingEloquent::all()->each(function ($setting) use (&$settings) {
-                Arr::set($settings, $setting['key'], $setting['value']);
+                switch ($setting['cast_type']) {
+                    case 'integer':
+                        $value = (int)$setting['value'];
+                        break;
+                    case 'float':
+                        if (empty($param)) {
+                            $value = (float)$setting['value'];
+                        } else {
+                            $value = (float)number_format($setting['value'], (int)$param, '.', '');
+                        }
+                        break;
+                    case 'boolean':
+                    case 'bool':
+                        $value = (bool)$setting['value'];
+                        break;
+                    default:
+                        $value = $setting['value'];
+                }
+                Arr::set($settings, $setting['key'], $value);
             });
             Cache::forever(static::CACHE_TAG, $settings);
         }
@@ -77,7 +95,7 @@ class SettingsManager implements SettingsRepository
      * 获取设置
      * @param string $key
      * @param mixed|null $default
-     * @return string
+     * @return mixed
      */
     public function get(string $key, $default = null)
     {
@@ -98,9 +116,10 @@ class SettingsManager implements SettingsRepository
      * 保存设置
      * @param string $key
      * @param string|null $value
+     * @param string $cast_type
      * @return bool
      */
-    public function set(string $key, string $value = null): bool
+    public function set(string $key, string $value = null, string $cast_type = 'string'): bool
     {
         if (is_array($value)) {
             return false;
@@ -108,7 +127,7 @@ class SettingsManager implements SettingsRepository
         //写库
         $query = SettingEloquent::query()->where('key', '=', $key);
         $method = $query->exists() ? 'update' : 'insert';
-        $query->$method(compact('key', 'value'));
+        $query->$method(compact('key', 'value', 'cast_type'));
         $this->all(true);//重载
         return true;
     }
