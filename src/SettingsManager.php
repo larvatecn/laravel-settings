@@ -115,11 +115,11 @@ class SettingsManager implements SettingsRepository
     /**
      * 保存设置
      * @param string $key
-     * @param string|null $value
+     * @param mixed|null $value
      * @param string $cast_type
      * @return bool
      */
-    public function set(string $key, string $value = null, string $cast_type = 'string'): bool
+    public function set(string $key, $value = null, string $cast_type = 'string'): bool
     {
         if (is_array($value)) {
             return false;
