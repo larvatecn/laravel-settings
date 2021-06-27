@@ -21,7 +21,7 @@ interface SettingsRepository
      * @param boolean $reload 是否重载
      * @return Collection
      */
-    public function all(bool $reload = false);
+    public function all(bool $reload = false): Collection;
 
     /**
      * 指定的设置是否存在

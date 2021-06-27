@@ -16,7 +16,7 @@ use Larva\Settings\Contracts\SettingsRepository;
  * @method static boolean has($key)
  * @method static array get($key, $default = null)
  * @method static array section($section)
- * @method static boolean set($key, $value)
+ * @method static boolean set($key, $value, $cast_type = 'string')
  * @method static boolean forge($key)
  */
 class Settings extends Facade

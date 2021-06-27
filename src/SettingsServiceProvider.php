@@ -11,8 +11,7 @@ use Illuminate\Support\ServiceProvider;
 use Larva\Settings\Contracts\SettingsRepository;
 
 /**
- * Class SettingsServiceProvider
- * @package Larva\Settings
+ * 设置服务提供者
  */
 class SettingsServiceProvider extends ServiceProvider
 {

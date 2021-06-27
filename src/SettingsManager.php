@@ -47,9 +47,10 @@ class SettingsManager implements SettingsRepository
 
     /**
      * 获取所有的设置
+     * @param bool $reload
      * @return Collection
      */
-    public function all(bool $reload = false)
+    public function all(bool $reload = false): Collection
     {
         if (($settings = Cache::get(static::CACHE_TAG)) == null || $reload) {
             $settings = [];

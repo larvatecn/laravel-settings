@@ -15,6 +15,7 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $key
  * @property string $value
+ * @property string $cast_type 原始类型
  * @property Carbon $updated_at 更新时间
  *
  * @author Tongle Xu <xutongle@gmail.com>
@@ -35,7 +36,7 @@ class SettingEloquent extends Model
      * @var array
      */
     public $fillable = [
-        'key', 'value'
+        'key', 'value', 'cast_type'
     ];
 
     /**
