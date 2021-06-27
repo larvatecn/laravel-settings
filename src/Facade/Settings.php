@@ -8,16 +8,19 @@
 
 namespace Larva\Settings\Facade;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 use Larva\Settings\Contracts\SettingsRepository;
+use Larva\Settings\SettingsManager;
 
 /**
- * @method static array all()
+ * @method static Collection all()
  * @method static boolean has($key)
- * @method static array get($key, $default = null)
+ * @method static mixed get($key, $default = null)
  * @method static array section($section)
  * @method static boolean set($key, $value, $cast_type = 'string')
  * @method static boolean forge($key)
+ * @mixin SettingsManager
  */
 class Settings extends Facade
 {

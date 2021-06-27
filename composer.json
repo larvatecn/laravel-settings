@@ -9,6 +9,9 @@
     "illuminate/database": "^6.0 || ^7.0 || ^8.0",
     "illuminate/support": "^6.0 || ^7.0 || ^8.0"
   },
+  "require-dev": {
+    "laravel/framework": "^8.5"
+  },
   "autoload": {
     "psr-4": {
       "Larva\\Settings\\": "src"
