@@ -7,6 +7,7 @@
 
 namespace Larva\Settings;
 
+use Illuminate\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Larva\Settings\Contracts\SettingsRepository;
 
@@ -34,8 +35,8 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(SettingsRepository::class, function ($app) {
-            return new SettingsManager($this->app);
+        $this->app->singleton(SettingsRepository::class, function () {
+            return new SettingsManager(Container::getInstance());
         });
     }
 }
