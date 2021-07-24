@@ -61,11 +61,7 @@ class SettingsManager implements SettingsRepository
                         $value = (int)$setting['value'];
                         break;
                     case 'float':
-                        if (empty($param)) {
-                            $value = (float)$setting['value'];
-                        } else {
-                            $value = (float)number_format($setting['value'], (int)$param, '.', '');
-                        }
+                        $value = (float)$setting['value'];
                         break;
                     case 'boolean':
                     case 'bool':
