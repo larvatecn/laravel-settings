@@ -22,27 +22,9 @@ class SettingsManager implements SettingsRepository
     const CACHE_TAG = "settings";
 
     /**
-     * The container instance.
-     *
-     * @var Container
-     */
-    protected $container;
-
-    /**
      * @var Collection
      */
-    protected $settings = null;
-
-    /**
-     * Create a new instance.
-     *
-     * @param Container $container
-     * @return void
-     */
-    public function __construct(Container $container)
-    {
-        $this->container = $container;
-    }
+    protected Collection $settings;
 
     /**
      * 获取所有的设置
