@@ -13,6 +13,7 @@ use Illuminate\Support\Carbon;
 /**
  * 数据模型
  * @property int $id
+ * @property string $name
  * @property string $key
  * @property string $value
  * @property string $cast_type 原始类型
@@ -37,7 +38,7 @@ class SettingEloquent extends Model
      * @var array
      */
     public $fillable = [
-        'key', 'value', 'cast_type', 'desc'
+        'name', 'key', 'value', 'cast_type', 'desc'
     ];
 
     /**
