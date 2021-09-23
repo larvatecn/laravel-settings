@@ -26,6 +26,31 @@ class SettingsManager implements SettingsRepository
      */
     protected Collection $settings;
 
+    public const CAST_TYPE_INT = 'int';
+    public const CAST_TYPE_FLOAT = 'float';
+    public const CAST_TYPE_BOOL = 'bool';
+    public const CAST_TYPE_STRING = 'string';
+
+    /**
+     * 交易状态，枚举值
+     * @var array|string[]
+     */
+    protected static array $castTypes = [
+        self::CAST_TYPE_INT => '整数',
+        self::CAST_TYPE_FLOAT => '浮点数',
+        self::CAST_TYPE_BOOL => '布尔',
+        self::CAST_TYPE_STRING => '字符串',
+    ];
+
+    /**
+     * 获取 cast type
+     * @return string[]
+     */
+    public static function getCastTypes(): array
+    {
+        return static::$castTypes;
+    }
+
     /**
      * 获取所有的设置
      * @param bool $reload
@@ -37,15 +62,15 @@ class SettingsManager implements SettingsRepository
             $settings = [];
             SettingEloquent::all()->each(function ($setting) use (&$settings) {
                 switch ($setting['cast_type']) {
-                    case 'int':
+                    case static::CAST_TYPE_INT:
                     case 'integer':
                         $value = (int)$setting['value'];
                         break;
-                    case 'float':
+                    case static::CAST_TYPE_FLOAT:
                         $value = (float)$setting['value'];
                         break;
                     case 'boolean':
-                    case 'bool':
+                    case static::CAST_TYPE_BOOL:
                         $value = (bool)$setting['value'];
                         break;
                     default:

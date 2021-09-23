@@ -18,6 +18,7 @@ class CreateSettingsTable extends Migration
             $table->string('key', 100)->unique()->comment('设置项 key');
             $table->text('value')->nullable()->comment('设置项 value');
             $table->string('cast_type',20)->nullable()->default('string')->comment('变量类型');
+            $table->string('desc')->nullable()->comment('描述');
             $table->timestamp('updated_at')->nullable();
         });
     }
