@@ -42,7 +42,7 @@ class SettingsManager implements SettingsRepository
      * 获取配置项类型
      * @return array
      */
-    public function getCastTypes(): array
+    public function castTypes(): array
     {
         $castTypes = [];
         SettingEloquent::all()->each(function ($setting) use (&$settings, &$castTypes) {

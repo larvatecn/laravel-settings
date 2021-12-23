@@ -16,6 +16,12 @@ use Illuminate\Support\Collection;
 interface SettingsRepository
 {
     /**
+     * 获取配置项类型
+     * @return array
+     */
+    public function castTypes(): array;
+
+    /**
      * 获取所有的设置
      * @param boolean $reload 是否重载
      * @return Collection

@@ -14,6 +14,7 @@ use Larva\Settings\SettingsManager;
 
 /**
  * @method static Collection all()
+ * @method static array castTypes()
  * @method static boolean has($key)
  * @method static mixed get($key, $default = null)
  * @method static array section($section)
