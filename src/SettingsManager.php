@@ -39,6 +39,19 @@ class SettingsManager implements SettingsRepository
     ];
 
     /**
+     * 获取配置项类型
+     * @return array
+     */
+    public function getCastTypes(): array
+    {
+        $castTypes = [];
+        SettingEloquent::all()->each(function ($setting) use (&$settings, &$castTypes) {
+            $castTypes[$setting['key']] = $setting['cast_type'];
+        });
+        return $castTypes;
+    }
+
+    /**
      * 获取所有的设置
      * @param bool $reload
      * @return Collection
