@@ -19,12 +19,8 @@ use Larva\Settings\Contracts\SettingsRepository;
  */
 class SettingsManager implements SettingsRepository
 {
-    const CACHE_TAG = "settings";
-
-    /**
-     * @var Collection
-     */
-    protected Collection $settings;
+    // 缓存 Key
+    const CACHE_TAG = "system:settings";
 
     public const CAST_TYPE_INT = 'int';
     public const CAST_TYPE_FLOAT = 'float';
@@ -32,24 +28,15 @@ class SettingsManager implements SettingsRepository
     public const CAST_TYPE_STRING = 'string';
 
     /**
-     * 交易状态，枚举值
+     * 配置类型，枚举值
      * @var array|string[]
      */
-    protected static array $castTypes = [
+    protected static array $castTypesMaps = [
         self::CAST_TYPE_INT => '整数',
         self::CAST_TYPE_FLOAT => '浮点数',
         self::CAST_TYPE_BOOL => '布尔',
         self::CAST_TYPE_STRING => '字符串',
     ];
-
-    /**
-     * 获取 cast type
-     * @return string[]
-     */
-    public static function getCastTypes(): array
-    {
-        return static::$castTypes;
-    }
 
     /**
      * 获取所有的设置
@@ -80,8 +67,7 @@ class SettingsManager implements SettingsRepository
             });
             Cache::forever(static::CACHE_TAG, $settings);
         }
-        $this->settings = collect($settings);
-        return $this->settings;
+        return collect($settings);
     }
 
     /**
@@ -141,10 +127,19 @@ class SettingsManager implements SettingsRepository
      * @param string $key
      * @return true
      */
-    public function forge(string $key)
+    public function forge(string $key): bool
     {
         SettingEloquent::query()->where('key', '=', $key)->delete();
         $this->all(true);//重载
         return true;
+    }
+
+    /**
+     * 获取 cast type
+     * @return string[]
+     */
+    public static function getCastTypeMaps(): array
+    {
+        return static::$castTypesMaps;
     }
 }
