@@ -27,11 +27,8 @@ class SettingsManager implements SettingsRepository
     public const CAST_TYPE_BOOL = 'bool';
     public const CAST_TYPE_STRING = 'string';
 
-    /**
-     * 配置类型，枚举值
-     * @var array|string[]
-     */
-    protected static array $castTypesMaps = [
+    // 配置值类型
+    public const TYPES = [
         self::CAST_TYPE_INT => '整数',
         self::CAST_TYPE_FLOAT => '浮点数',
         self::CAST_TYPE_BOOL => '布尔',
@@ -145,14 +142,5 @@ class SettingsManager implements SettingsRepository
         SettingEloquent::query()->where('key', '=', $key)->delete();
         $this->all(true);//重载
         return true;
-    }
-
-    /**
-     * 获取 cast type
-     * @return string[]
-     */
-    public static function getCastTypeMaps(): array
-    {
-        return static::$castTypesMaps;
     }
 }

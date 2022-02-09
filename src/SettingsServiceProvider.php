@@ -22,7 +22,7 @@ class SettingsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->runningInConsole()) {
+        if ($this->app->runningInConsole()) {//加载迁移
             $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
         }
     }
