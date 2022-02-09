@@ -5,12 +5,12 @@
   "type": "library",
   "license": "MIT",
   "require": {
-    "illuminate/cache": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-    "illuminate/database": "^6.0 || ^7.0 || ^8.0 || ^9.0",
-    "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0"
+    "illuminate/cache": "^9.0",
+    "illuminate/database": "^9.0",
+    "illuminate/support": "^9.0"
   },
   "require-dev": {
-    "laravel/framework": "^8.5 || ^9.0"
+    "laravel/framework": "^9.0"
   },
   "autoload": {
     "psr-4": {
