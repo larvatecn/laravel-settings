@@ -1,10 +1,12 @@
 # laravel-settings
 
-设置
+适用于 Laravel 的系统设置模块，适合保存一些不放在 ENV 中的设置，支持集群环境，无脏缓存。支持 Octane（加速引擎）。
 
-[![Packagist](https://img.shields.io/packagist/l/larva/laravel-settings.svg?maxAge=2592000)](https://packagist.org/packages/larva/laravel-settings)
-[![Total Downloads](https://img.shields.io/packagist/dt/larva/laravel-settings.svg?style=flat-square)](https://packagist.org/packages/larva/laravel-settings)
-
+<p align="center">
+    <a href="https://packagist.org/packages/larva/laravel-settings"><img src="https://poser.pugx.org/larva/laravel-settings/v/stable" alt="Stable Version"></a>
+    <a href="https://packagist.org/packages/larva/laravel-settings"><img src="https://poser.pugx.org/larva/laravel-settings/downloads" alt="Total Downloads"></a>
+    <a href="https://packagist.org/packages/larva/laravel-settings"><img src="https://poser.pugx.org/larva/laravel-settings/license" alt="License"></a>
+</p>
 
 ## Installation
 
@@ -19,12 +21,6 @@ composer require larva/laravel-settings -vv
 
 \Larva\Settings\Facade\Settings::set('abv','123456');
 ```
-
-## Project supported by JetBrains
-
-Many thanks to Jetbrains for kindly providing a license for me to work on this and other open-source projects.
-
-[![](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://www.jetbrains.com/?from=https://github.com/overtrue)
 
 ## License
 
