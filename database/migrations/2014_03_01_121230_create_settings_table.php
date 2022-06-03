@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->string('cast_type',20)->nullable()->default('string')->comment('变量类型');
             $table->string('desc')->nullable()->comment('描述');
             $table->timestamp('updated_at')->nullable();
+            $table->comment('设置表');
         });
     }
 
