@@ -8,20 +8,20 @@
 
 适用于 Laravel 的系统设置模块，适合保存一些不放在 ENV 中的设置，支持集群环境，无脏缓存。支持 Octane（加速引擎）。
 
-## Installation
+## 安装
 
 ```bash
 composer require larva/laravel-settings -vv
 ```
 
-
 ## 使用
+
 ```php
 \Larva\Settings\Facade\Settings::get('abv');
 
-\Larva\Settings\Facade\Settings::set('abv','123456');
+\Larva\Settings\Facade\Settings::set('abv', '123456');
 ```
 
 ## License
 
-MIT
+The Laravel library is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

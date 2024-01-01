@@ -7,7 +7,6 @@
 
 namespace Larva\Settings;
 
-use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
@@ -58,21 +57,12 @@ class SettingsManager implements SettingsRepository
         if (($settings = Cache::get(static::CACHE_TAG)) == null || $reload) {
             $settings = [];
             SettingEloquent::all()->each(function ($setting) use (&$settings) {
-                switch ($setting['cast_type']) {
-                    case static::CAST_TYPE_INT:
-                    case 'integer':
-                        $value = (int)$setting['value'];
-                        break;
-                    case static::CAST_TYPE_FLOAT:
-                        $value = (float)$setting['value'];
-                        break;
-                    case 'boolean':
-                    case static::CAST_TYPE_BOOL:
-                        $value = (bool)$setting['value'];
-                        break;
-                    default:
-                        $value = $setting['value'];
-                }
+                $value = match ($setting['cast_type']) {
+                    static::CAST_TYPE_INT, 'integer' => (int)$setting['value'],
+                    static::CAST_TYPE_FLOAT => (float)$setting['value'],
+                    'boolean', static::CAST_TYPE_BOOL => (bool)$setting['value'],
+                    default => $setting['value'],
+                };
                 Arr::set($settings, $setting['key'], $value);
             });
             Cache::forever(static::CACHE_TAG, $settings);
